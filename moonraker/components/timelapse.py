@@ -214,7 +214,7 @@ class Timelapse:
             klippy_apis = self.server.lookup_component("klippy_apis")
             kresult = await klippy_apis.query_objects({'print_stats': None})
             pstats = kresult.get("print_stats", {})
-            gcodefile = pstats.get("filename", "").split("/")[-1]
+            gcodefile = pstats.get("filename", "").rsplit("/", 1)[-1]
 
             # variable framerate
             if self.variablefps:
