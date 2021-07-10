@@ -232,6 +232,7 @@ class Timelapse:
             cmd = self.ffmpeg_binary_path \
                 + " -r " + str(fps) \
                 + " -i '" + inputfiles + "'" \
+                + " -threads 2 -g 5" \
                 + " -crf " + str(self.crf) \
                 + " -vcodec libx264" \
                 + " -pix_fmt " + self.pixelformat \
